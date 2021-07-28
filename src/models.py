@@ -1,19 +1,66 @@
 from flask_sqlalchemy import SQLAlchemy
+#from random import randint
 
-db = SQLAlchemy()
+#db = SQLAlchemy()
 
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(120), unique=True, nullable=False)
-    password = db.Column(db.String(80), unique=False, nullable=False)
-    is_active = db.Column(db.Boolean(), unique=False, nullable=False)
+class ArbolFamiliar:
+    def __init__(self, apellido):
+        self.apellido = apellido
+        self.member = [
+                        {
+                        "id": 1,
+                        "edad":90,
+                        "apellido": self.apellido,
+                        "nombre": "Juan",
+                        "padres" : None,
+                        "hijos" : [2,3,4]
+                        },
+                        {
+                        "id": 2,
+                        "edad":50,
+                        "apellido": self.apellido,
+                        "nombre": "Leonides",
+                        "hijos" : None
+                        },
+                        {
+                        "id": 3,
+                        "edad":30,
+                        "apellido": self.apellido,
+                        "nombre": "Maria",
+                        "hijos" : None
+                        },
+                        {
+                        "id": 4,
+                        "edad":30,
+                        "apellido": self.apellido,
+                        "nombre": "Pedro",
+                        "hijos" : [5]
+                        },
+                        {
+                        "id": 5,
+                        "edad":15,
+                        "apellido": self.apellido,
+                        "nombre": "Pedro",
+                        "hijos" : [6,7]
+                        },
+                        {
+                        "id": 6,
+                        "edad":2,
+                        "apellido": self.apellido,
+                        "nombre": "Nicola",
+                        "hijos" : None
+                        },
+                        {
+                        "id": 7,
+                        "edad":2,
+                        "apellido": self.apellido,
+                        "nombre": "Valeria",
+                        "hijos" : None
+                        }
+                        ]
 
-    def __repr__(self):
-        return '<User %r>' % self.username
-
-    def serialize(self):
-        return {
-            "id": self.id,
-            "email": self.email,
-            # do not serialize the password, its a security breach
-        }
+def idMember(self,id):
+    for i in self.member:
+        if i["id"] == int(id):
+            return i
+    return None
