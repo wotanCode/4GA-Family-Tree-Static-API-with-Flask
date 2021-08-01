@@ -48,11 +48,11 @@ def handle_hello():
 
     return jsonify(response_body), 200
 
-@app.route('/members', methods=['GET'])
+@app.route('/all', methods=['GET'])
 def handle_all():
     return jsonify(family.member), 200
 
-@app.route('/members/<int:id>', methods=['GET'])
+@app.route('/member/<int:id>', methods=['GET'])
 def handle_member(id=None):
     callfunction = family.idMember(id)
     return jsonify(callfunction), 200
